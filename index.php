@@ -4,7 +4,27 @@
   $day = strftime('%d'); // Deprecated
   $mon = strftime('%B'); // Deprecated
   $year = strftime('%Y'); // Deprecated
+
+  /*
+  * Получаем текущий час в виде строки от 00 до 23
+  * и приводим строку к целому числу от 0 до 23
+  */
+  $hour = (int) strftime('%H'); // Deprecated
+  $welcome = ''; // Инициализируем переменную для приветствия
+
+  if ($hour >= 0 && $hour < 6){
+    $welcome = "Доброй ночи";
+  } else if ($hour >= 6 && $hour < 12){
+    $welcome = "Доброе утро";
+  } else if ($hour >= 12 && $hour < 18){
+    $welcome = "Добрый день";
+  } else if ($hour >= 18 && $hour <= 23){
+    $welcome = "Добрый вечер";
+  } else {
+    $welcome = "Доброй ночи";
+  }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +45,7 @@
 
   <div id="content">
     <!-- Заголовок -->
-    <h1>Добро пожаловать на наш сайт!</h1>
+    <h1><?= $welcome ?>, Гость!</h1>
     <!-- Заголовок -->
     <!-- Область основного контента -->
     <h3>Зачем мы ходим в школу?</h3>
